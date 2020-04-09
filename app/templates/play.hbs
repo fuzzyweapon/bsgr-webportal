@@ -5,7 +5,7 @@
 
 <div class="alert alert-warning">If you reload or leave this page, it will close your connection to the game.</div>
 
-  
+
 {{#if showConnect}}
         <button class="connectButton btn btn-success" {{action "connect"}}>Connect</button>
 {{/if}}
@@ -26,8 +26,8 @@
 </div>
 
 <CmdBox @value={{text1}} @id="sendMsg" @cols="80" @rows="6" @onEnter={{action "sendMsg1"}} />
-    
-<button class="sendButton btn-primary btn" {{action "sendMsg1"}}>Send Text</button>
+
+<button class="sendButton btn-primary btn" {{action "sendMsg1"}}>Send COM</button>
 <button class="btn btn-default" {{action (mut showHistory1) true}}>
   <TooltipIcon @position="right" @message="Command history." @icon="fa fa-history" />
 </button>
@@ -38,7 +38,7 @@
 
 <CmdBox @value={{text2}} @id="sendMsg2" @cols="80" @rows="6" @onEnter={{action "sendMsg2"}} />
 
-<button class="sendButton2 btn-primary btn" {{action "sendMsg2"}}>Send Text</button>
+<button class="sendButton2 btn-primary btn" {{action "sendMsg2"}}>Send COM</button>
 <button class="btn btn-default" {{action (mut showHistory2) true}}>
   <TooltipIcon @position="right" @message="Command history." @icon="fa fa-history" />
 </button>
@@ -47,26 +47,26 @@
 
 
       <BsModalSimple @title="Load a Command" @closeTitle="Cancel" @size={{null}} @fade={{false}} @open={{showHistory1}} @onHide={{action (mut showHistory1) null}}>
-          
+
           <p class="hint">Select a command to load into your input window. You can then edit it before sending it again.</p>
-          
+
          {{#each history1 as |h|}}
           <p><button class="btn btn-default" {{action "loadHistory1" h}}><i class="fa fa-redo" aria-hidden="true"></i></button> {{h}}</p>
           {{/each}}
-          
-          
-      
+
+
+
         </BsModalSimple>
-        
-        
+
+
         <BsModalSimple @title="Load a Command" @closeTitle="Cancel" @size={{null}} @fade={{false}} @open={{showHistory2}} @onHide={{action (mut showHistory2) null}}>
-          
+
            {{#each history2 as |h|}}
             <p><button class="btn btn-default" {{action "loadHistory2" h}}><i class="fa fa-redo" aria-hidden="true"></i></button> {{h}}</p>
             {{/each}}
-          
-          
-      
+
+
+
           </BsModalSimple>
 
 
